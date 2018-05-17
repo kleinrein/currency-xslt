@@ -1,0 +1,207 @@
+@import "compass/utilities/tables";
+@import "compass/css3";
+@import "compass/utilities";
+//VENDOR
+@import "vendor/chosen";
+@import "vendor/switchery";
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+$primaryFont: "OpenSans",
+sans-serif;
+$secondaryFont: "Trebuchet MS",
+sans-serif;
+$titleFont: 'Quicksand',
+cursive;
+$vpIncrement: 0.1px;
+//Dekstop
+$desktop: 1024px;
+$pre-desktop: $desktop - $vpIncrement;
+//Tablet
+$tablet: 850px;
+$pre-tablet: $tablet - $vpIncrement;
+//Phone
+$phone: 640px;
+$post-phone: $phone + $vpIncrement;
+//Constraints
+$min: min-width;
+$max: max-width;
+@mixin mediaQuery($constraint, $viewport1, $viewport2: null) {
+    @if $constraint==$min {
+        @media screen and ($min: $viewport1) {
+            @content;
+        }
+    }
+    @else if $constraint==$max {
+        @media screen and ($max: $viewport1) {
+            @content;
+        }
+    }
+    @else {
+        @media screen and ($min: $viewport1) and ($max: $viewport2) {
+            @content;
+        }
+    }
+}
+body {
+    background-color: #DADFE1;
+    header {
+        h1 {
+            @extend .noselect;
+            position: fixed;
+            font-family: $titleFont;
+            font-weight: 100;
+            padding: .3em;
+            opacity: .3;
+            @include mediaQuery($max, $phone){
+                display: none;
+            }
+        }
+    }
+    footer {
+        a {
+            text-decoration: none;
+            color: #000;
+            color: #000;
+            position: fixed;
+            font-family: $titleFont;
+            font-weight: 100;
+            font-size: 1.2em;
+            padding: .3em;
+            opacity: .3;
+            bottom: 0;
+            right: 1em;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#valutaliste {
+    opacity: .3;
+}
+
+#wrapper {
+    margin: auto;
+    text-align: center;
+    padding: 1em;
+    font-family: $primaryFont;
+    label {
+        display: block;
+        text-transform: uppercase;
+        opacity: .5;
+        font-size: .9em;
+    }
+    input[type=number] {
+        @include border-radius(5px);
+        margin-top: .3em;
+        padding-left: .4em;
+        width: 12em;
+        height: 2em;
+        letter-spacing: .3px;
+        border: solid 1px #ccc;
+        @include transition-property(all);
+        @include transition-duration(.3s);
+        @include transition-timing-function(ease-in);
+        &:focus {
+            border: solid 1px #19B5FE;
+        }
+    }
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        cursor: pointer;
+        display: block;
+        width: 8px;
+        color: #333;
+        text-align: center;
+        position: relative;
+    }
+    input[type=number]::-webkit-inner-spin-button:before,
+    input[type=number]::-webkit-inner-spin-button:after {
+        content: "^";
+        position: absolute;
+        right: 0;
+        font-family: monospace;
+    }
+    input[type=number]::-webkit-inner-spin-button:before {
+        top: 0px;
+    }
+    input[type=number]::-webkit-inner-spin-button:after {
+        bottom: 0px;
+        -webkit-transform: rotate(180deg);
+    }
+    select {
+        width: 12em;
+    }
+    input,
+    select {
+        font-size: 1em;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+#konvertering {
+    padding: 1em;
+    margin-bottom: 1em;
+    font-size: 1.6em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tableSwitch {}
+
+table {
+    display: none;
+    color: #333;
+    font-family: $secondaryFont;
+    font-size: .9em;
+    font-weight: 300;
+    text-align: left;
+    line-height: 40px;
+    border-spacing: 0;
+    border: 2px solid #975997;
+    width: 500px;
+    margin: 10px auto;
+    background-color: #ecf0f1;
+    position: relative;
+    z-index: 10;
+    @include mediaQuery($max, $phone){
+        width: 100%;
+        font-size: .75em;
+    }
+    thead tr:first-child {
+        background: #975997;
+        color: #fff;
+        border: none;
+    }
+    th {
+        font-weight: bold;
+    }
+    th:first-child,
+    td:first-child {
+        padding: 0 15px 0 20px;
+    }
+    tbody tr:last-child td {
+        border: none;
+    }
+    tbody tr {
+        border-bottom: 1px solid #975997;
+    }
+    td:last-child {
+        text-align: right;
+        padding-right: 10px;
+    }
+}
