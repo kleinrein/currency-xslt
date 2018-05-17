@@ -1,4 +1,4 @@
-<img src="https://github.com/kleinrein/currency-xslt/blob/master/images/currency-xslt.gif" width="200">
+<img src="https://github.com/kleinrein/currency-xslt/blob/master/images/currency-xslt.gif" width="400">
 
 # Currency converter using XSLT
 An old project that converts currencies in using PHP, XSLT and XML.
