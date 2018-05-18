@@ -13,4 +13,4 @@ The currency rates are fetched from DNB's (the biggest bank in Norway) **XML** f
 * SASS
 
 # License
-GPLv3
+[The MIT License (MIT)](https://opensource.org/licenses/MIT)
