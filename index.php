@@ -40,7 +40,7 @@ require("control.php")
         ?>
 
         <footer>
-            <a href="http://www.andreasrein.com">andreas rein</a>
+            <a>andreas rein</a>
         </footer>
 
         <script src="//cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.js"></script>
